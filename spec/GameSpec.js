@@ -20,4 +20,11 @@ describe('Game', function() {
     game.throwBall();
     expect(game.currentPinsStanding()).toBeLessThan(11);
   });
+
+  describe('Score', function() {
+     it('is saved after #throwBall', function() {
+       game.throwBall();
+       expect(game.saveScore()).toHaveBeenCalled();
+     });
+  });
 });
