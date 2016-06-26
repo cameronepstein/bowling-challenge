@@ -8,3 +8,7 @@ function Game() {
 Game.prototype.currentPinsStanding = function() {
   return this.bowlingPins;
 }
+
+Game.prototype.throwBall = function() {
+  this.bowlingPins = Math.floor((Math.random() * 10) + 1);
+}
