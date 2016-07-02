@@ -12,23 +12,18 @@ describe('Game', function() {
     expect(game).not.toEqual(null);
   });
 
-  // it("starts with 10 pins standing", function() {
-  //   expect(game.currentPinsStanding()).toEqual(10);
-  // });
-  //
-  // it("allows user to throw ball", function() {
-  //   expect(game.throwBall()).toBeUndefined();
-  // });
-  //
-  // it("changes amount of standing pins when ball is thrown", function() {
-  //   game.throwBall();
-  //   expect(game.currentPinsStanding()).toBeLessThan(11);
-  // });
-  //
-  // describe('Score', function() {
-  //    it('is saved after #throwBall', function() {
-  //      game.throwBall();
-  //      expect(game.saveScore()).toHaveBeenCalled();
-  //    });
-  // });
+  it("can roll a gutter game", function() {
+    for (var i = 0; i < 20; i++) {
+      game.throw(0);
+    }
+    expect(game.finalScore()).toBe(0);
+  });
+
+  it("can complete a game scoring 1 each frame", function() {
+    for (var i = 0; i < 20; i++) {
+      game.throw(1);
+    }
+    expect(game.finalScore()).toBe(20);
+  });
+
 });
